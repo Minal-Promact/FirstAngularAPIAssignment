@@ -96,7 +96,12 @@ namespace FirstAngularAPIAssignment.Repository.Implementation
             emp.Name = updateEmployeeRequest.Name;
             emp.Gender = updateEmployeeRequest.Gender;
             emp.Email = updateEmployeeRequest.Email;
-            emp.ContactNumber = updateEmployeeRequest.ContactNumber; 
+            emp.ContactNumber = updateEmployeeRequest.ContactNumber;
+            
+            foreach (var empskills in emp.Skills.ToList())
+            {
+                emp.Skills.Remove(empskills);
+            }
 
             updateEmployeeRequest.Skills.ForEach(e =>
             {
