@@ -6,11 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAngularAPIAssignment.Controllers
-{    
-    [EnableCors("AllowAngularOrigins")]
-    [Route(Constant.Route)]
-    [ApiController]
-    
+{
+    [Route("api/[controller]")]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _iEmployeeRepository;
@@ -24,8 +21,7 @@ namespace FirstAngularAPIAssignment.Controllers
         /// Get All Employee Details
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        [Route(Constant.GetAllEmployees)]
+        [HttpGet]        
         public async Task<IActionResult> GetAllEmployees()
         {
             try
@@ -44,9 +40,8 @@ namespace FirstAngularAPIAssignment.Controllers
             }
         }
 
-        [HttpPost]
-        [Route(Constant.AddEmployee)]
-        public async Task<IActionResult> AddEmployee(EmployeeRequestDTO addEmployeeRequest)
+        [HttpPost]        
+        public async Task<IActionResult> AddEmployee([FromBody] EmployeeRequestDTO addEmployeeRequest)
         {
             try
             {
@@ -71,8 +66,7 @@ namespace FirstAngularAPIAssignment.Controllers
             }
         }
 
-        [HttpGet]
-        [Route(Constant.GetEmployeeById)]
+        [HttpGet("{empId}")]
         public async Task<IActionResult> GetEmployeeById(int empId)
         {
             try
@@ -93,9 +87,9 @@ namespace FirstAngularAPIAssignment.Controllers
             }
         }
 
-        [HttpPut]
-        [Route(Constant.UpdateEmployee)]
-        public async Task<IActionResult> UpdateEmployee(int empId, EmployeeRequestDTO updateEmployeeRequest)
+
+        [HttpPut("{empId}")]
+        public async Task<IActionResult> UpdateEmployee(int empId, [FromBody] EmployeeRequestDTO updateEmployeeRequest)
         {
             try
             {
@@ -121,8 +115,8 @@ namespace FirstAngularAPIAssignment.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route(Constant.DeleteEmployee)]
+      
+        [HttpDelete("{empId}")]
         public async Task<IActionResult> DeleteEmployee(int empId)
         {
             try
