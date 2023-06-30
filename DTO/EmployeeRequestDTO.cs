@@ -19,7 +19,7 @@ namespace FirstAngularAPIAssignment.DTO
 
         [Required(ErrorMessage = "Please Select Gender.")]
         [JsonProperty("gender")]
-        public string Gender { get; set; }
+        public int Gender { get; set; }
 
         [StringLength(10, ErrorMessage = "ContactNumber should be maximum 30 length.")]
         [JsonProperty("contactNumber")]

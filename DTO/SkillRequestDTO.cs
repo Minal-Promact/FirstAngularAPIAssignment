@@ -12,7 +12,7 @@ namespace FirstAngularAPIAssignment.DTO
 
         [Required(ErrorMessage = "Please Select Skill Experience.")]
         [JsonProperty("skillExperience")]
-        public float SkillExperience { get; set; }
+        public int SkillExperience { get; set; }
         [JsonProperty("employeeId")]
         public int EmployeeId { get; set; }
     }
