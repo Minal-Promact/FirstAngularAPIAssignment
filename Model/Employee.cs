@@ -19,7 +19,7 @@ namespace FirstAngularAPIAssignment.Model
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Please Select Gender.")]
-        public string Gender { get; set; }
+        public int Gender { get; set; }
 
         [StringLength(10, ErrorMessage = "ContactNumber should be maximum 10 length.")]
         public string ContactNumber { get; set; }
